@@ -27,6 +27,12 @@ package com.pelikansio
 			
 			button1.x = stage.stageWidth / 1.25;
 			button1.y = stage.stageHeight / 2;
+			
+			var button2:lopetanappi = new lopetanappi();
+			stage.addChild(button2);
+			
+			button2.x = stage.stageWidth / 1.25
+			button2.y = stage.stageHeight / 1.35
 		}
 		
 	}
