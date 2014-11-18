@@ -13,6 +13,7 @@ package com.pelikansio
 		public var button:aloituspelipainike;
 		public var button1:ohjeetnappi;
 		public var button2:lopetanappi;
+		public var ohje1:ohjeetnakyma;
 		public function aloitusnakyma(passedClass:Engine)
 		{
 			button = new aloituspelipainike();
@@ -26,6 +27,7 @@ package com.pelikansio
 			button2 = new lopetanappi();
 			mainClass = passedClass
 			button2.addEventListener(MouseEvent.CLICK, lopetanappipainettu)
+				
 		}
 		public function aloituspelipainikePainettu(event:MouseEvent)
 		{
@@ -33,6 +35,7 @@ package com.pelikansio
 		}
 		public function ohjeetnappipainettu(event:MouseEvent)
 		{
+			mainClass.naytaohje();
 		}
 		public function lopetanappipainettu(event:MouseEvent)
 		{
