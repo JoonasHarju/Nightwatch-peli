@@ -8,11 +8,9 @@ package com.pelikansio
 	public class Engine extends MovieClip
 	{
 		public var aloitus:aloitusnakyma;
-		public var ohjeetnakyma:ohjeetnakyma;
 		public function Engine()
 		{
 			naytaaloitusnakyma()
-			naytaohje();
 			
 		}
 		public function naytaaloitusnakyma()
@@ -39,11 +37,5 @@ package com.pelikansio
 			button2.y = stage.stageHeight / 1.35
 			
 		}
-		public function naytaohje()
-		{
-			ohjeetnakyma = new ohjeetnakyma(stage);
-			addChild(ohjeetnakyma);
-		}
-		
 	}
 }
