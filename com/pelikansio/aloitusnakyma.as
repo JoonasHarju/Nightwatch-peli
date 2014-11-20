@@ -1,7 +1,8 @@
 package com.pelikansio
 {
 	import com.pelikansio.Engine;
-	
+	import com.pelikansio.aloituspelipainike;
+	import flash.system.fscommand;
 	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
 	import flash.events.MouseEvent;
@@ -10,38 +11,52 @@ package com.pelikansio
 	public class aloitusnakyma extends MovieClip
 	{
 		public var mainClass:Engine;
-		public var button:aloituspelipainike;
-		public var button1:ohjeetnappi;
-		public var button2:lopetanappi;
-		public var ohje1:ohjeetnakyma;
 		
 		public function aloitusnakyma(passedClass:Engine)
 		{
 			trace("aloitusnakyma");
-			button = new aloituspelipainike();
-			mainClass = passedClass	
+			
+			mainClass = passedClass;
+			var button:aloituspelipainike = new aloituspelipainike;
+			var button1:ohjeetnappi = new ohjeetnappi();
+			var button2:lopetanappi = new lopetanappi();
+			
+			addChild(button);
+			button.x = mainClass.stage.stageWidth / 1.25;
+			button.y = mainClass.stage.stageHeight / 4;
 			button.addEventListener(MouseEvent.CLICK, aloituspelipainikePainettu)
-				
-			button1 = new ohjeetnappi();
-			mainClass = passedClass
+			
+			
+			addChild(button1);
+			button1.x = mainClass.stage.stageWidth / 1.25;
+			button1.y = mainClass.stage.stageHeight / 2;
 			button1.addEventListener(MouseEvent.CLICK, ohjeetnappipainettu)
 			
-			button2 = new lopetanappi();
-			mainClass = passedClass
+			
+			addChild(button2);
+			button2.x = mainClass.stage.stageWidth / 1.25
+			button2.y = mainClass.stage.stageHeight / 1.35
 			button2.addEventListener(MouseEvent.CLICK, lopetanappipainettu)
-				
+			
 		}
 		public function aloituspelipainikePainettu(event:MouseEvent)
 		{
-			
+			trace("aloituspelipainikepainettu");
 		}
 		public function ohjeetnappipainettu(event:MouseEvent):void
 		{
 			trace("ohjeetnappipainettu");
-			ohjeetnakyma(this)
+			var ohje1:ohjeetnakyma = new ohjeetnakyma;
+			
+			addChild(ohje1);
+			ohje1.x = mainClass.stage.stageWidth / 3.7;
+			ohje1.y = mainClass.stage.stageHeight / 1.75;
+			
 		}
 		public function lopetanappipainettu(event:MouseEvent)
 		{
+			trace("lopetanappipainettu");
+			fscommand("quit");
 		}
 	}
 }
