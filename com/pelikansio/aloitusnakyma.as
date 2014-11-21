@@ -2,10 +2,11 @@ package com.pelikansio
 {
 	import com.pelikansio.Engine;
 	import com.pelikansio.aloituspelipainike;
-	import flash.system.fscommand;
+	
 	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
 	import flash.events.MouseEvent;
+	import flash.system.fscommand;
 	
 	
 	public class aloitusnakyma extends MovieClip
@@ -42,6 +43,10 @@ package com.pelikansio
 		public function aloituspelipainikePainettu(event:MouseEvent)
 		{
 			trace("aloituspelipainikepainettu");
+			var peli:PeliNakyma = new PeliNakyma
+			addChild(peli)
+			peli.x = mainClass.stage.stageWidth / 2;
+			peli.y = mainClass.stage.stageHeight / 2;
 		}
 		public function ohjeetnappipainettu(event:MouseEvent):void
 		{

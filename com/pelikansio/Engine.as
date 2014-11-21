@@ -8,6 +8,7 @@ package com.pelikansio
 	public class Engine extends MovieClip
 	{
 		public var aloitus:aloitusnakyma;
+		public var peli:PeliNakyma
 		public function Engine()
 		{
 			naytaaloitusnakyma()
@@ -17,8 +18,22 @@ package com.pelikansio
 		public function naytaaloitusnakyma()
 		{
 			aloitus = new aloitusnakyma(this);
+			if(peli){
+				removeChild(peli);
+				peli = null;
+			}
 			stage.addChild(aloitus);
-			
 		}
+		public function naytaPeliNakyma()
+		{
+			peli = new PeliNakyma();
+			if(aloitus){
+				trace("in")
+				removeChild(aloitus);
+				aloitus = null;
+			}
+			addChild(peli)
+		}
+		
 	}
 }
