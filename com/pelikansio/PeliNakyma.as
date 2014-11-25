@@ -1,6 +1,10 @@
 package com.pelikansio
 {
 	import flash.display.MovieClip;
+	import com.pelikansio.Engine;
+	import flash.display.SimpleButton;
+	import flash.events.MouseEvent;
+	
 	
 	public class PeliNakyma extends MovieClip
 	{
@@ -75,16 +79,52 @@ package com.pelikansio
 				
 			addChild(tomaatti);
 			tomaatti.x = mainClass.stage.stageWidth / 1.25;
-			tomaattiu.y = mainClass.stage.stageHeight / 4;
+			tomaatti.y = mainClass.stage.stageHeight / 4;
 			tomaatti.addEventListener(MouseEvent.CLICK, tomaattipainettu)
 		}
 		public function kannupainettu(event:MouseEvent)
 		{
-			trace("kannupainettu");
-			var peli:PeliNakyma = new PeliNakyma
-			addChild(peli)
-			peli.x = mainClass.stage.stageWidth / 2;
-			peli.y = mainClass.stage.stageHeight / 2;
+
+		}
+		public function kukkakaalipainettu(event:MouseEvent)
+		{
+			
+		}
+		public function kuokkapainettu(event:MouseEvent)
+		{
+			
+		}
+		public function kurkkupainettu(event:MouseEvent)
+		{
+			
+		}
+		public function lannoitepainettu(event:MouseEvent)
+		{
+			
+		}
+		public function lanttupainettu(event:MouseEvent)
+		{
+			
+		}
+		public function perunapainettu(event:MouseEvent)
+		{
+			
+		}
+		public function punajuuripainettu(event:MouseEvent)
+		{
+			
+		}
+		public function salaattipainettu(event:MouseEvent)
+		{
+			
+		}
+		public function sipulipainettu(event:MouseEvent)
+		{
+			
+		}	
+		public function tomaattipainettu(event:MouseEvent)
+		{
+			
+		}
 	}
-}
 }
