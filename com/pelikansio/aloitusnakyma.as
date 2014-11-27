@@ -43,10 +43,12 @@ package com.pelikansio
 		public function aloituspelipainikePainettu(event:MouseEvent)
 		{
 			trace("aloituspelipainikepainettu");
-			var peli:PeliNakyma = new PeliNakyma
+			/*var peli:PeliNakyma = new PeliNakyma(mainClass);
 			addChild(peli)
 			peli.x = mainClass.stage.stageWidth / 2;
-			peli.y = mainClass.stage.stageHeight / 2;
+			peli.y = mainClass.stage.stageHeight / 2;*/
+			
+			mainClass.naytaPeliNakyma()
 		}
 		public function ohjeetnappipainettu(event:MouseEvent):void
 		{
