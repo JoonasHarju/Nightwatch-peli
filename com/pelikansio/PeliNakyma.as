@@ -1,10 +1,13 @@
 package com.pelikansio
 {
-	import flash.display.MovieClip;
 	import com.pelikansio.Engine;
-	import flash.display.SimpleButton;
-	import flash.events.MouseEvent;
 	import com.pelikansio.kannu1;
+	import com.pelikansio.kuokka1;
+	
+	import flash.display.MovieClip;
+	import flash.display.SimpleButton;
+	import flash.display.Stage;
+	import flash.events.MouseEvent;
 	
 	
 	public class PeliNakyma extends MovieClip
@@ -12,7 +15,7 @@ package com.pelikansio
 		public var mainClass:Engine;
 		
 		
-		public function PeliNakyma(passedClass:Engine)
+		public function PeliNakyma(passedClass:Engine, stage:Stage)
 		{
 			trace("pelinäkymä");
 			
@@ -31,60 +34,60 @@ package com.pelikansio
 			var tomaatti:tomaatti1 = new tomaatti1;
 			
 			
-			/*mainClass.stage.addChild(kannu);
-			kannu.x = mainClass.stage.stageWidth / 2;
-			kannu.y = mainClass.stage.stageHeight / 2;*/
+			stage.addChild(kannu);
+			kannu.x = stage.stageWidth / 2;
+			kannu.y = stage.stageHeight / 2;
 			kannu.addEventListener(MouseEvent.CLICK, kannupainettu)
 			
 			
-			addChild(kuokka);
-			kuokka.x = mainClass.stage.stageWidth / 1.25;
-			kuokka.y = mainClass.stage.stageHeight / 4;
+			stage.addChild(kuokka);
+			kuokka.x = stage.stageWidth / 2;
+			kuokka.y = stage.stageHeight / 2;
 			kuokka.addEventListener(MouseEvent.CLICK, kuokkapainettu)
 				
 			addChild(lannoite);
-			lannoite.x = mainClass.stage.stageWidth / 1.25;
-			lannoite.y = mainClass.stage.stageHeight / 4;
+			lannoite.x = mainClass.stage.stageWidth / 2;
+			lannoite.y = mainClass.stage.stageHeight / 2;
 			lannoite.addEventListener(MouseEvent.CLICK, lannoitepainettu)
 				
 			addChild(kukkakaali);
-			kukkakaali.x = mainClass.stage.stageWidth / 1.25;
-			kukkakaali.y = mainClass.stage.stageHeight / 4;
+			kukkakaali.x = mainClass.stage.stageWidth / 2;
+			kukkakaali.y = mainClass.stage.stageHeight / 2;
 			kukkakaali.addEventListener(MouseEvent.CLICK, kukkakaalipainettu)
 				
 			addChild(kurkku);
-			kurkku.x = mainClass.stage.stageWidth / 1.25;
-			kurkku.y = mainClass.stage.stageHeight / 4;
+			kurkku.x = mainClass.stage.stageWidth / 2;
+			kurkku.y = mainClass.stage.stageHeight / 2;
 			kurkku.addEventListener(MouseEvent.CLICK, kurkkupainettu)
 				
 			addChild(lanttu);
-			lanttu.x = mainClass.stage.stageWidth / 1.25;
-			lanttu.y = mainClass.stage.stageHeight / 4;
+			lanttu.x = mainClass.stage.stageWidth / 2;
+			lanttu.y = mainClass.stage.stageHeight / 2;
 			lanttu.addEventListener(MouseEvent.CLICK, lanttupainettu)
 				
 			addChild(peruna);
-			peruna.x = mainClass.stage.stageWidth / 1.25;
-			peruna.y = mainClass.stage.stageHeight / 4;
+			peruna.x = mainClass.stage.stageWidth / 2;
+			peruna.y = mainClass.stage.stageHeight / 2;
 			peruna.addEventListener(MouseEvent.CLICK, perunapainettu)
 				
 			addChild(punajuuri);
-			punajuuri.x = mainClass.stage.stageWidth / 1.25;
-			punajuuri.y = mainClass.stage.stageHeight / 4;
+			punajuuri.x = mainClass.stage.stageWidth / 2;
+			punajuuri.y = mainClass.stage.stageHeight / 2;
 			punajuuri.addEventListener(MouseEvent.CLICK, punajuuripainettu)
 				
 			addChild(salaatti);
-			salaatti.x = mainClass.stage.stageWidth / 1.25;
-			salaatti.y = mainClass.stage.stageHeight / 4;
+			salaatti.x = mainClass.stage.stageWidth / 2;
+			salaatti.y = mainClass.stage.stageHeight / 2;
 			salaatti.addEventListener(MouseEvent.CLICK, salaattipainettu)
 				
 			addChild(sipuli);
-			sipuli.x = mainClass.stage.stageWidth / 1.25;
-			sipuli.y = mainClass.stage.stageHeight / 4;
+			sipuli.x = mainClass.stage.stageWidth / 2;
+			sipuli.y = mainClass.stage.stageHeight / 2;
 			sipuli.addEventListener(MouseEvent.CLICK, sipulipainettu)
 				
 			addChild(tomaatti);
-			tomaatti.x = mainClass.stage.stageWidth / 1.25;
-			tomaatti.y = mainClass.stage.stageHeight / 4;
+			tomaatti.x = mainClass.stage.stageWidth / 2;
+			tomaatti.y = mainClass.stage.stageHeight / 2;
 			tomaatti.addEventListener(MouseEvent.CLICK, tomaattipainettu)
 		}
 		public function kannupainettu(event:MouseEvent)

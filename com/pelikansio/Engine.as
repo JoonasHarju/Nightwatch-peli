@@ -27,16 +27,7 @@ package com.pelikansio
 		}
 		public function naytaPeliNakyma()
 		{
-			peli = new PeliNakyma(this);
-			/*if(aloitus){
-				trace("in")
-				removeChild(aloitus);
-				aloitus = null;
-			}*/
-			stage.addChild(peli)
-			peli.x = stage.stageWidth / 2;
-			peli.y = stage.stageHeight / 2;
-				
+
 		}
 		
 	}
