@@ -6,6 +6,8 @@ package com.pelikansio
 	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
 	import flash.events.MouseEvent;
+	import flash.media.Sound;
+	import flash.net.URLRequest;
 	import flash.system.fscommand;
 	
 	

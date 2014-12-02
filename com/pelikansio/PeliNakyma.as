@@ -32,7 +32,13 @@ package com.pelikansio
 			var salaatti:salaatti1 = new salaatti1;
 			var sipuli:sipuli1 = new sipuli1;
 			var tomaatti:tomaatti1 = new tomaatti1;
+			var torinappi:torinappi1 = new torinappi1;
 			
+			
+			stage.addChild(torinappi);
+			torinappi.x = 600;
+			torinappi.y = 400;
+			torinappi.addEventListener(MouseEvent.CLICK, torinappipainettu)
 			
 			stage.addChild(kannu);
 			kannu.x = 600;
@@ -88,6 +94,10 @@ package com.pelikansio
 			tomaatti.x = -80;
 			tomaatti.y = 215;
 			tomaatti.addEventListener(MouseEvent.CLICK, tomaattipainettu)
+		}
+		public function torinappipainettu(event:MouseEvent)
+		{
+			trace ("torinappipainettu")
 		}
 		public function kannupainettu(event:MouseEvent)
 		{
