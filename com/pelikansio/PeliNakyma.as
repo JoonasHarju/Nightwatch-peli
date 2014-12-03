@@ -33,17 +33,20 @@ package com.pelikansio
 			var sipuli:sipuli1 = new sipuli1;
 			var tomaatti:tomaatti1 = new tomaatti1;
 			var torinappi:torinappi1 = new torinappi1;
+			var porkkana:porkkana1 = new porkkana1
 			
 			
-			stage.addChild(torinappi);
-			torinappi.x = 600;
-			torinappi.y = 400;
-			torinappi.addEventListener(MouseEvent.CLICK, torinappipainettu)
+			
 			
 			stage.addChild(kannu);
 			kannu.x = 600;
 			kannu.y = 196;
 			kannu.addEventListener(MouseEvent.CLICK, kannupainettu)
+				
+			stage.addChild(porkkana);
+			porkkana.x = 188;
+			porkkana.y = 455;
+			porkkana.addEventListener(MouseEvent.CLICK, porkkanapainettu)
 			
 			stage.addChild(kuokka);
 			kuokka.x = 600;
@@ -94,11 +97,18 @@ package com.pelikansio
 			tomaatti.x = -80;
 			tomaatti.y = 215;
 			tomaatti.addEventListener(MouseEvent.CLICK, tomaattipainettu)
+				
+			stage.addChild(torinappi);
+			torinappi.x = 600;
+			torinappi.y = 400;
+			torinappi.addEventListener(MouseEvent.CLICK, torinappipainettu)
 		}
-		public function torinappipainettu(event:MouseEvent)
+		
+		public function porkkanapainettu(event:MouseEvent)
 		{
-			trace ("torinappipainettu")
+			trace ("porkkanapainettu")
 		}
+		
 		public function kannupainettu(event:MouseEvent)
 		{
 			trace("kannupainettu")
@@ -143,6 +153,14 @@ package com.pelikansio
 		public function tomaattipainettu(event:MouseEvent)
 		{
 			trace ("tomaattipainettu")
+		}
+		public function torinappipainettu(event:MouseEvent)
+		{
+			trace ("torinappipainettu")
+			var torinakyma:torinakyma1 = new torinakyma1();
+			addChild(torinakyma)
+			torinakyma.x = mainClass.stage.stageWidth / 9001;
+			torinakyma.y = mainClass.stage.stageHeight / 9001;
 		}
 	}
 }

@@ -27,7 +27,11 @@ package com.pelikansio
 		}
 		public function naytaPeliNakyma()
 		{
-
+				
+		}
+		public function naytatorinakyma1()
+		{
+		
 		}
 		
 	}
