@@ -13,16 +13,19 @@ package com.pelikansio
 	public class PeliNakyma extends MovieClip
 	{
 		public var mainClass:Engine;
-		
+		public var porkkana:porkkana1 = new porkkana1;
+		public var torinakymaKaytossa:Boolean;
+		public var torinakyma:torinakyma1 = new torinakyma1();
+		public var kannu:kannu1 = new kannu1;
+		public var kuokka:kuokka1 = new kuokka1;
 		
 		public function PeliNakyma(passedClass:Engine, stage:Stage)
 		{
 			trace("pelinäkymä");
-			
+			torinakymaKaytossa = false;
 			mainClass = passedClass;
 			
-			var kannu:kannu1 = new kannu1;
-			var kuokka:kuokka1 = new kuokka1;
+
 			var lannoite:lannoite1 = new lannoite1;
 			var kukkakaali:kukkakaali1 = new kukkakaali1;
 			var kurkku:kurkku1 = new kurkku1;
@@ -33,7 +36,7 @@ package com.pelikansio
 			var sipuli:sipuli1 = new sipuli1;
 			var tomaatti:tomaatti1 = new tomaatti1;
 			var torinappi:torinappi1 = new torinappi1;
-			var porkkana:porkkana1 = new porkkana1
+			
 			
 			
 			
@@ -157,10 +160,38 @@ package com.pelikansio
 		public function torinappipainettu(event:MouseEvent)
 		{
 			trace ("torinappipainettu")
-			var torinakyma:torinakyma1 = new torinakyma1();
-			addChild(torinakyma)
-			torinakyma.x = mainClass.stage.stageWidth / 9001;
-			torinakyma.y = mainClass.stage.stageHeight / 9001;
+			
+			if (torinakymaKaytossa == false){
+				torinakymaKaytossa = true;
+				
+				addChild(torinakyma)
+				torinakyma.x = mainClass.stage.stageWidth / 9001;
+				torinakyma.y = mainClass.stage.stageHeight / 9001;
+			
+				stage.removeChild(porkkana)
+				stage.removeChild(kannu)
+				stage.removeChild(kuokka)
+				
+				
+				
+			
+			}else{
+				trace(torinakyma);
+				removeChild(torinakyma)
+				torinakymaKaytossa=false;
+				
+				stage.addChild(porkkana);
+				porkkana.x = 188;
+				porkkana.y = 455;
+				
+				stage.addChild(kuokka);
+				kuokka.x = 600;
+				kuokka.y = 256;
+				
+				stage.addChild(kannu);
+				kannu.x = 600;
+				kannu.y = 196;
+			}
 		}
 	}
 }
