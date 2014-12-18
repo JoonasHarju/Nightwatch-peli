@@ -3,7 +3,8 @@ package com.pelikansio
 	import com.pelikansio.Engine;
 	import com.pelikansio.kannu1;
 	import com.pelikansio.kuokka1;
-	
+	import flash.ui.Mouse;
+	import flash.ui.MouseCursor;
 	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
 	import flash.display.Stage;
@@ -18,6 +19,7 @@ package com.pelikansio
 		public var torinakyma:torinakyma1 = new torinakyma1();
 		public var kannu:kannu1 = new kannu1;
 		public var kuokka:kuokka1 = new kuokka1;
+		public var lannoitehiiri:lannoitehiiri1 = new lannoitehiiri1
 		
 		public function PeliNakyma(passedClass:Engine, stage:Stage)
 		{
@@ -123,7 +125,6 @@ package com.pelikansio
 		public function kuokkapainettu(event:MouseEvent)
 		{
 			trace ("kuokkapainettu")
-			
 		}
 		public function kurkkupainettu(event:MouseEvent)
 		{
@@ -192,6 +193,7 @@ package com.pelikansio
 				kannu.x = 600;
 				kannu.y = 196;
 			}
+
 		}
 	}
 }
