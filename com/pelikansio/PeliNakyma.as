@@ -113,7 +113,6 @@ package com.pelikansio
 		{
 			trace ("porkkanapainettu")
 		}
-		
 		public function kannupainettu(event:MouseEvent)
 		{
 			trace("kannupainettu")

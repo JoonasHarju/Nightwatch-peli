@@ -14,10 +14,13 @@ package com.pelikansio
 	public class aloitusnakyma extends MovieClip
 	{
 		public var mainClass:Engine;
+		public var ohjeetnappiKaytossa:Boolean;
+		public var ohje1:ohjeetnakyma = new ohjeetnakyma;
 		
 		public function aloitusnakyma(passedClass:Engine)
 		{
 			trace("aloitusnakyma");
+			ohjeetnappiKaytossa = false;
 			
 			mainClass = passedClass;
 			var button:aloituspelipainike = new aloituspelipainike;
@@ -55,11 +58,19 @@ package com.pelikansio
 		public function ohjeetnappipainettu(event:MouseEvent):void
 		{
 			trace("ohjeetnappipainettu");
-			var ohje1:ohjeetnakyma = new ohjeetnakyma;
 			
+			if (ohjeetnappiKaytossa == false){
+				ohjeetnappiKaytossa = true;
+				
 			addChild(ohje1);
 			ohje1.x = mainClass.stage.stageWidth / 3.7;
 			ohje1.y = mainClass.stage.stageHeight / 1.75;
+			
+			
+			}else{
+				removeChild(ohje1)
+				ohjeetnappiKaytossa = false;
+			}
 			
 		}
 		public function lopetanappipainettu(event:MouseEvent)
