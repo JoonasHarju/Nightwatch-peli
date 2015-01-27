@@ -3,12 +3,13 @@ package com.pelikansio
 	import com.pelikansio.Engine;
 	import com.pelikansio.kannu1;
 	import com.pelikansio.kuokka1;
-	import flash.ui.Mouse;
-	import flash.ui.MouseCursor;
+	
 	import flash.display.MovieClip;
 	import flash.display.SimpleButton;
 	import flash.display.Stage;
 	import flash.events.MouseEvent;
+	import flash.ui.Mouse;
+	import flash.ui.MouseCursor;
 	
 	
 	public class PeliNakyma extends MovieClip
@@ -20,6 +21,7 @@ package com.pelikansio
 		public var kannu:kannu1 = new kannu1;
 		public var kuokka:kuokka1 = new kuokka1;
 		public var lannoitehiiri:lannoitehiiri1 = new lannoitehiiri1
+		public var kursori:lannoitehiiri1=new lannoitehiiri1;
 		
 		public function PeliNakyma(passedClass:Engine, stage:Stage)
 		{
@@ -131,7 +133,10 @@ package com.pelikansio
 		}
 		public function lannoitepainettu(event:MouseEvent)
 		{
-			trace ("lannoitepainettu")
+			this.addEventListener(MouseEvent.ROLL_OUT,outKursori);
+			this.addEventListener(MouseEvent.ROLL_OVER,overKursori);
+			this.addEventListener(MouseEvent.MOUSE_MOVE,moveKursori);
+			this.addEventListener(MouseEvent.CLICK,removeKursori);
 		}
 		public function lanttupainettu(event:MouseEvent)
 		{
@@ -194,5 +199,44 @@ package com.pelikansio
 			}
 
 		}
+		
+		public function outKursori(event:MouseEvent):void
+		{
+			if(stage.contains(kursori)){
+				stage.removeChild(kursori);
+				Mouse.show();
+			}
+		}
+		public function overKursori(event:MouseEvent):void
+		{
+			
+			kursori.x=stage.mouseX;
+			kursori.y=stage.mouseY;
+			stage.addChild(kursori);
+			Mouse.hide();
+			
+		}
+		public function moveKursori(event:MouseEvent):void
+		{
+			if(!stage.contains(kursori)){
+				stage.addChild(kursori);
+				Mouse.hide();
+			}
+			
+			kursori.x=stage.mouseX;
+			kursori.y=stage.mouseY;
+			event.updateAfterEvent();
+		}
+			public function removeKursori(event:MouseEvent):void
+			{
+				if(stage.contains(kursori)){
+					stage.removeChild(kursori);
+					Mouse.show();
+					this.removeEventListener(MouseEvent.ROLL_OUT,outKursori);
+					this.removeEventListener(MouseEvent.ROLL_OVER,overKursori);
+					this.removeEventListener(MouseEvent.MOUSE_MOVE,moveKursori);
+					//stage.removeEventListener(MouseEvent.CLICK,removeKursori);
+				}
+			}
+		}
 	}
-}
