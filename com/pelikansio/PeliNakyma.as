@@ -22,6 +22,7 @@ package com.pelikansio
 		public var kuokka:kuokka1 = new kuokka1;
 		public var lannoitehiiri:lannoitehiiri1 = new lannoitehiiri1
 		public var kursori:lannoitehiiri1=new lannoitehiiri1;
+		public var kannuhiiri:kannuhiiri1= new kannuhiiri1;
 		
 		public function PeliNakyma(passedClass:Engine, stage:Stage)
 		{
@@ -117,7 +118,10 @@ package com.pelikansio
 		}
 		public function kannupainettu(event:MouseEvent)
 		{
-			trace("kannupainettu")
+			this.addEventListener(MouseEvent.ROLL_OUT,outKannuhiiri);
+			this.addEventListener(MouseEvent.ROLL_OVER,overKannuhiiri);
+			this.addEventListener(MouseEvent.MOUSE_MOVE,moveKannuhiiri);
+			this.addEventListener(MouseEvent.CLICK,removeKannuhiiri);
 		}
 		public function kukkakaalipainettu(event:MouseEvent)
 		{
@@ -198,7 +202,7 @@ package com.pelikansio
 				kannu.y = 196;
 			}
 
-		}
+		}//lannioite
 		
 		public function outKursori(event:MouseEvent):void
 		{
@@ -235,7 +239,45 @@ package com.pelikansio
 					this.removeEventListener(MouseEvent.ROLL_OUT,outKursori);
 					this.removeEventListener(MouseEvent.ROLL_OVER,overKursori);
 					this.removeEventListener(MouseEvent.MOUSE_MOVE,moveKursori);
-					//stage.removeEventListener(MouseEvent.CLICK,removeKursori);
+					
+					
+				}//kannu
+			}
+				public function outKannuhiiri(event:MouseEvent):void
+				{
+					if(stage.contains(kannuhiiri)){
+						stage.removeChild(kannuhiiri);
+						Mouse.show();
+					}
+				}
+				public function overKannuhiiri(event:MouseEvent):void
+				{
+					
+					kannuhiiri.x=stage.mouseX;
+					kannuhiiri.y=stage.mouseY;
+					stage.addChild(kannuhiiri);
+					Mouse.hide();
+					
+				}
+				public function moveKannuhiiri(event:MouseEvent):void
+				{
+					if(!stage.contains(kannuhiiri)){
+						stage.addChild(kannuhiiri);
+						Mouse.hide();
+					}
+					
+					kannuhiiri.x=stage.mouseX;
+					kannuhiiri.y=stage.mouseY;
+					event.updateAfterEvent();
+				}
+				public function removeKannuhiiri(event:MouseEvent):void
+				{
+					if(stage.contains(kannuhiiri)){
+						stage.removeChild(kannuhiiri);
+						Mouse.show();
+						this.removeEventListener(MouseEvent.ROLL_OUT,outKannuhiiri);
+						this.removeEventListener(MouseEvent.ROLL_OVER,overKannuhiiri);
+						this.removeEventListener(MouseEvent.MOUSE_MOVE,moveKannuhiiri);
 				}
 			}
 		}
