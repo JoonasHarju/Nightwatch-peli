@@ -20,9 +20,12 @@ package com.pelikansio
 		public var torinakyma:torinakyma1 = new torinakyma1();
 		public var kannu:kannu1 = new kannu1;
 		public var kuokka:kuokka1 = new kuokka1;
+		
+		
 		public var lannoitehiiri:lannoitehiiri1 = new lannoitehiiri1
 		public var kursori:lannoitehiiri1=new lannoitehiiri1;
 		public var kannuhiiri:kannuhiiri1= new kannuhiiri1;
+		public var kuokkahiiri:kuokkahiiri1= new kuokkahiiri1;
 		
 		public function PeliNakyma(passedClass:Engine, stage:Stage)
 		{
@@ -129,7 +132,10 @@ package com.pelikansio
 		}
 		public function kuokkapainettu(event:MouseEvent)
 		{
-			trace ("kuokkapainettu")
+			this.addEventListener(MouseEvent.ROLL_OUT,outKuokkahiiri);
+			this.addEventListener(MouseEvent.ROLL_OVER,overKuokkahiiri);
+			this.addEventListener(MouseEvent.MOUSE_MOVE,moveKuokkahiiri);
+			this.addEventListener(MouseEvent.CLICK,removeKuokkahiiri);
 		}
 		public function kurkkupainettu(event:MouseEvent)
 		{
@@ -166,6 +172,7 @@ package com.pelikansio
 		{
 			trace ("tomaattipainettu")
 		}
+
 		public function torinappipainettu(event:MouseEvent)
 		{
 			trace ("torinappipainettu")
@@ -202,7 +209,7 @@ package com.pelikansio
 				kannu.y = 196;
 			}
 
-		}//lannioite
+		}
 		
 		public function outKursori(event:MouseEvent):void
 		{
@@ -225,6 +232,8 @@ package com.pelikansio
 			if(!stage.contains(kursori)){
 				stage.addChild(kursori);
 				Mouse.hide();
+				kursori.mouseEnabled = false;
+				kursori.mouseChildren = false;
 			}
 			
 			kursori.x=stage.mouseX;
@@ -241,7 +250,7 @@ package com.pelikansio
 					this.removeEventListener(MouseEvent.MOUSE_MOVE,moveKursori);
 					
 					
-				}//kannu
+				}//                                                                                                                   kannu
 			}
 				public function outKannuhiiri(event:MouseEvent):void
 				{
@@ -264,6 +273,8 @@ package com.pelikansio
 					if(!stage.contains(kannuhiiri)){
 						stage.addChild(kannuhiiri);
 						Mouse.hide();
+						kannuhiiri.mouseEnabled = false;
+						kannuhiiri.mouseChildren = false;
 					}
 					
 					kannuhiiri.x=stage.mouseX;
@@ -279,6 +290,49 @@ package com.pelikansio
 						this.removeEventListener(MouseEvent.ROLL_OVER,overKannuhiiri);
 						this.removeEventListener(MouseEvent.MOUSE_MOVE,moveKannuhiiri);
 				}
+					//                                                                                                                kuokka
 			}
+				public function outKuokkahiiri(event:MouseEvent):void
+				{
+					if(stage.contains(kuokkahiiri)){
+						stage.removeChild(kuokkahiiri);
+						Mouse.show();
+					}
+				}
+				public function overKuokkahiiri(event:MouseEvent):void
+				{
+					
+					kuokkahiiri.x=stage.mouseX;
+					kuokkahiiri.y=stage.mouseY;
+					stage.addChild(kuokkahiiri);
+					Mouse.hide();
+					
+				}
+				public function moveKuokkahiiri(event:MouseEvent):void
+				{
+					if(!stage.contains(kuokkahiiri)){
+						stage.addChild(kuokkahiiri);
+						Mouse.hide();
+						kuokkahiiri.mouseEnabled = false;
+						kuokkahiiri.mouseChildren = false;
+					}
+					
+					kuokkahiiri.x=stage.mouseX;
+					kuokkahiiri.y=stage.mouseY;
+					event.updateAfterEvent();
+				}
+				public function removeKuokkahiiri(event:MouseEvent):void
+				{
+					if(stage.contains(kuokkahiiri)){
+						stage.removeChild(kuokkahiiri);
+						Mouse.show();
+						this.removeEventListener(MouseEvent.ROLL_OUT,outKuokkahiiri);
+						this.removeEventListener(MouseEvent.ROLL_OVER,overKuokkahiiri);
+					    this.removeEventListener(MouseEvent.MOUSE_MOVE,moveKuokkahiiri);
+						
+				}	
+
+			}
+
 		}
 	}
