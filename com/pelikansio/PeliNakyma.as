@@ -26,6 +26,9 @@ package com.pelikansio
 		public var kursori:lannoitehiiri1=new lannoitehiiri1;
 		public var kannuhiiri:kannuhiiri1= new kannuhiiri1;
 		public var kuokkahiiri:kuokkahiiri1= new kuokkahiiri1;
+		public var kukkakaalihiiri:kukkakaalihiiri1= new kukkakaalihiiri1;
+		public var porkkanahiiri:porkkanahiiri1= new porkkanahiiri1;
+		public var kurkkuhiiri:kurkkuhiiri1= new kurkkuhiiri1;
 		
 		public function PeliNakyma(passedClass:Engine, stage:Stage)
 		{
@@ -117,7 +120,10 @@ package com.pelikansio
 		
 		public function porkkanapainettu(event:MouseEvent)
 		{
-			trace ("porkkanapainettu")
+			this.addEventListener(MouseEvent.ROLL_OUT,outPorkkanahiiri);
+			this.addEventListener(MouseEvent.ROLL_OVER,overPorkkanahiiri);
+			this.addEventListener(MouseEvent.MOUSE_MOVE,movePorkkanahiiri);
+			this.addEventListener(MouseEvent.CLICK,removePorkkanahiiri);
 		}
 		public function kannupainettu(event:MouseEvent)
 		{
@@ -128,7 +134,10 @@ package com.pelikansio
 		}
 		public function kukkakaalipainettu(event:MouseEvent)
 		{
-			trace ("kukkakaalipainettu")
+			this.addEventListener(MouseEvent.ROLL_OUT,outKukkakaalihiiri);
+			this.addEventListener(MouseEvent.ROLL_OVER,overKukkakaalihiiri);
+			this.addEventListener(MouseEvent.MOUSE_MOVE,moveKukkakaalihiiri);
+			this.addEventListener(MouseEvent.CLICK,removeKukkakaalihiiri);
 		}
 		public function kuokkapainettu(event:MouseEvent)
 		{
@@ -139,7 +148,10 @@ package com.pelikansio
 		}
 		public function kurkkupainettu(event:MouseEvent)
 		{
-			trace ("kurkkupainettu")
+			this.addEventListener(MouseEvent.ROLL_OUT,outKurkkuhiiri);
+			this.addEventListener(MouseEvent.ROLL_OVER,overKurkkuhiiri);
+			this.addEventListener(MouseEvent.MOUSE_MOVE,moveKurkkuhiiri);
+			this.addEventListener(MouseEvent.CLICK,removeKurkkuhiiri);
 		}
 		public function lannoitepainettu(event:MouseEvent)
 		{
@@ -330,9 +342,128 @@ package com.pelikansio
 						this.removeEventListener(MouseEvent.ROLL_OVER,overKuokkahiiri);
 					    this.removeEventListener(MouseEvent.MOUSE_MOVE,moveKuokkahiiri);
 						
-				}	
+				}	//                                                                                 								Kukkakaali
 
 			}
-
+				public function outKukkakaalihiiri(event:MouseEvent):void
+				{
+					if(stage.contains(kukkakaalihiiri)){
+						stage.removeChild(kukkakaalihiiri);
+						Mouse.show();
+					}
+				}
+				public function overKukkakaalihiiri(event:MouseEvent):void
+				{
+					
+					kukkakaalihiiri.x=stage.mouseX;
+					kukkakaalihiiri.y=stage.mouseY;
+					stage.addChild(kukkakaalihiiri);
+					Mouse.hide();
+					
+				}
+				public function moveKukkakaalihiiri(event:MouseEvent):void
+				{
+					if(!stage.contains(kukkakaalihiiri)){
+						stage.addChild(kukkakaalihiiri);
+						Mouse.hide();
+						kukkakaalihiiri.mouseEnabled = false;
+						kukkakaalihiiri.mouseChildren = false;
+					}
+					
+					kukkakaalihiiri.x=stage.mouseX;
+					kukkakaalihiiri.y=stage.mouseY;
+					event.updateAfterEvent();
+				}
+				public function removeKukkakaalihiiri(event:MouseEvent):void
+				{
+					if(stage.contains(kukkakaalihiiri)){
+						stage.removeChild(kukkakaalihiiri);
+						Mouse.show();
+						this.removeEventListener(MouseEvent.ROLL_OUT,outKukkakaalihiiri);
+						this.removeEventListener(MouseEvent.ROLL_OVER,overKukkakaalihiiri);
+						this.removeEventListener(MouseEvent.MOUSE_MOVE,moveKukkakaalihiiri);
+						
+				}		//																											porkkanahiiri
+			}
+				public function outPorkkanahiiri(event:MouseEvent):void
+				{
+					if(stage.contains(porkkanahiiri)){
+						stage.removeChild(porkkanahiiri);
+						Mouse.show();
+					}
+				}
+				public function overPorkkanahiiri(event:MouseEvent):void
+				{
+					
+					porkkanahiiri.x=stage.mouseX;
+					porkkanahiiri.y=stage.mouseY;
+					stage.addChild(porkkanahiiri);
+					Mouse.hide();
+					
+				}
+				public function movePorkkanahiiri(event:MouseEvent):void
+				{
+					if(!stage.contains(porkkanahiiri)){
+						stage.addChild(porkkanahiiri);
+						Mouse.hide();
+						porkkanahiiri.mouseEnabled = false;
+						porkkanahiiri.mouseChildren = false;
+					}
+					
+					porkkanahiiri.x=stage.mouseX;
+					porkkanahiiri.y=stage.mouseY;
+					event.updateAfterEvent();
+				}
+				public function removePorkkanahiiri(event:MouseEvent):void
+				{
+					if(stage.contains(porkkanahiiri)){
+						stage.removeChild(porkkanahiiri);
+						Mouse.show();
+						this.removeEventListener(MouseEvent.ROLL_OUT,outPorkkanahiiri);
+						this.removeEventListener(MouseEvent.ROLL_OVER,overPorkkanahiiri);
+						this.removeEventListener(MouseEvent.MOUSE_MOVE,movePorkkanahiiri);
+						
+				}		//																											kurkkuhiiri
+			}
+				public function outKurkkuhiiri(event:MouseEvent):void
+				{
+					if(stage.contains(kurkkuhiiri)){
+						stage.removeChild(kurkkuhiiri);
+						Mouse.show();
+					}
+				}
+				public function overKurkkuhiiri(event:MouseEvent):void
+				{
+					
+					kurkkuhiiri.x=stage.mouseX;
+					kurkkuhiiri.y=stage.mouseY;
+					stage.addChild(kurkkuhiiri);
+					Mouse.hide();
+					
+				}
+				public function moveKurkkuhiiri(event:MouseEvent):void
+				{
+					if(!stage.contains(kurkkuhiiri)){
+						stage.addChild(kurkkuhiiri);
+						Mouse.hide();
+						kurkkuhiiri.mouseEnabled = false;
+						kurkkuhiiri.mouseChildren = false;
+					}
+					
+					kurkkuhiiri.x=stage.mouseX;
+					kurkkuhiiri.y=stage.mouseY;
+					event.updateAfterEvent();
+				}
+				public function removeKurkkuhiiri(event:MouseEvent):void
+				{
+					if(stage.contains(kurkkuhiiri)){
+						stage.removeChild(kurkkuhiiri);
+						Mouse.show();
+						this.removeEventListener(MouseEvent.ROLL_OUT,outKurkkuhiiri);
+						this.removeEventListener(MouseEvent.ROLL_OVER,overKurkkuhiiri);
+						this.removeEventListener(MouseEvent.MOUSE_MOVE,moveKurkkuhiiri);
+						
+				}		
+			}
 		}
 	}
