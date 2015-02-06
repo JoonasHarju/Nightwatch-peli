@@ -29,6 +29,12 @@ package com.pelikansio
 		public var kukkakaalihiiri:kukkakaalihiiri1= new kukkakaalihiiri1;
 		public var porkkanahiiri:porkkanahiiri1= new porkkanahiiri1;
 		public var kurkkuhiiri:kurkkuhiiri1= new kurkkuhiiri1;
+		public var lanttuhiiri:lanttuhiiri1= new lanttuhiiri1;
+		public var perunahiiri:perunahiiri1= new perunahiiri1;
+		public var punajuurihiiri:punajuurihiiri1= new punajuurihiiri1;
+		public var salaattihiiri:salaattihiiri1= new salaattihiiri1;
+		public var sipulihiiri:sipulihiiri1= new sipulihiiri1;
+		public var tomaattihiiri:tomaattihiiri1= new tomaattihiiri1;
 		
 		public function PeliNakyma(passedClass:Engine, stage:Stage)
 		{
@@ -162,27 +168,45 @@ package com.pelikansio
 		}
 		public function lanttupainettu(event:MouseEvent)
 		{
-			trace ("lanttupainettu")
+			this.addEventListener(MouseEvent.ROLL_OUT,outLanttuhiiri);
+			this.addEventListener(MouseEvent.ROLL_OVER,overLanttuhiiri);
+			this.addEventListener(MouseEvent.MOUSE_MOVE,moveLanttuhiiri);
+			this.addEventListener(MouseEvent.CLICK,removeLanttuhiiri);
 		}
 		public function perunapainettu(event:MouseEvent)
 		{
-			trace ("perunapainettu")
+			this.addEventListener(MouseEvent.ROLL_OUT,outPerunahiiri);
+			this.addEventListener(MouseEvent.ROLL_OVER,overPerunahiiri);
+			this.addEventListener(MouseEvent.MOUSE_MOVE,movePerunahiiri);
+			this.addEventListener(MouseEvent.CLICK,removePerunahiiri);
 		}
 		public function punajuuripainettu(event:MouseEvent)
 		{
-			trace ("punajuuripainettu")
+			this.addEventListener(MouseEvent.ROLL_OUT,outPunajuurihiiri);
+			this.addEventListener(MouseEvent.ROLL_OVER,overPunajuurihiiri);
+			this.addEventListener(MouseEvent.MOUSE_MOVE,movePunajuurihiiri);
+			this.addEventListener(MouseEvent.CLICK,removePunajuurihiiri);
 		}
 		public function salaattipainettu(event:MouseEvent)
 		{
-			trace ("salaattipainettu")
+			this.addEventListener(MouseEvent.ROLL_OUT,outSalaattihiiri);
+			this.addEventListener(MouseEvent.ROLL_OVER,overSalaattihiiri);
+			this.addEventListener(MouseEvent.MOUSE_MOVE,moveSalaattihiiri);
+			this.addEventListener(MouseEvent.CLICK,removeSalaattihiiri);
 		}
 		public function sipulipainettu(event:MouseEvent)
 		{
-			trace ("sipulipainettu")
+			this.addEventListener(MouseEvent.ROLL_OUT,outSipulihiiri);
+			this.addEventListener(MouseEvent.ROLL_OVER,overSipulihiiri);
+			this.addEventListener(MouseEvent.MOUSE_MOVE,moveSipulihiiri);
+			this.addEventListener(MouseEvent.CLICK,removeSipulihiiri);
 		}	
 		public function tomaattipainettu(event:MouseEvent)
 		{
-			trace ("tomaattipainettu")
+			this.addEventListener(MouseEvent.ROLL_OUT,outTomaattihiiri);
+			this.addEventListener(MouseEvent.ROLL_OVER,overTomaattihiiri);
+			this.addEventListener(MouseEvent.MOUSE_MOVE,moveTomaattihiiri);
+			this.addEventListener(MouseEvent.CLICK,removeTomaattihiiri);
 		}
 
 		public function torinappipainettu(event:MouseEvent)
@@ -462,6 +486,246 @@ package com.pelikansio
 						this.removeEventListener(MouseEvent.ROLL_OUT,outKurkkuhiiri);
 						this.removeEventListener(MouseEvent.ROLL_OVER,overKurkkuhiiri);
 						this.removeEventListener(MouseEvent.MOUSE_MOVE,moveKurkkuhiiri);
+						
+				}		//																											lanttuhiiri
+				}
+				public function outLanttuhiiri(event:MouseEvent):void
+				{
+					if(stage.contains(lanttuhiiri)){
+						stage.removeChild(lanttuhiiri);
+						Mouse.show();
+					}
+				}
+				public function overLanttuhiiri(event:MouseEvent):void
+				{
+					
+					lanttuhiiri.x=stage.mouseX;
+					lanttuhiiri.y=stage.mouseY;
+					stage.addChild(lanttuhiiri);
+					Mouse.hide();
+					
+				}
+				public function moveLanttuhiiri(event:MouseEvent):void
+				{
+					if(!stage.contains(lanttuhiiri)){
+						stage.addChild(lanttuhiiri);
+						Mouse.hide();
+						lanttuhiiri.mouseEnabled = false;
+						lanttuhiiri.mouseChildren = false;
+					}
+					
+					lanttuhiiri.x=stage.mouseX;
+					lanttuhiiri.y=stage.mouseY;
+					event.updateAfterEvent();
+				}
+				public function removeLanttuhiiri(event:MouseEvent):void
+				{
+					if(stage.contains(lanttuhiiri)){
+						stage.removeChild(lanttuhiiri);
+						Mouse.show();
+						this.removeEventListener(MouseEvent.ROLL_OUT,outLanttuhiiri);
+						this.removeEventListener(MouseEvent.ROLL_OVER,overLanttuhiiri);
+						this.removeEventListener(MouseEvent.MOUSE_MOVE,moveLanttuhiiri);
+			
+				}		//																											perunahiiri
+			}
+				public function outPerunahiiri(event:MouseEvent):void
+				{
+					if(stage.contains(perunahiiri)){
+						stage.removeChild(perunahiiri);
+						Mouse.show();
+					}
+				}
+				public function overPerunahiiri(event:MouseEvent):void
+				{
+					
+					perunahiiri.x=stage.mouseX;
+					perunahiiri.y=stage.mouseY;
+					stage.addChild(perunahiiri);
+					Mouse.hide();
+					
+				}
+				public function movePerunahiiri(event:MouseEvent):void
+				{
+					if(!stage.contains(perunahiiri)){
+						stage.addChild(perunahiiri);
+						Mouse.hide();
+						perunahiiri.mouseEnabled = false;
+						perunahiiri.mouseChildren = false;
+					}
+					
+					perunahiiri.x=stage.mouseX;
+					perunahiiri.y=stage.mouseY;
+					event.updateAfterEvent();
+				}
+				public function removePerunahiiri(event:MouseEvent):void
+				{
+					if(stage.contains(perunahiiri)){
+						stage.removeChild(perunahiiri);
+						Mouse.show();
+						this.removeEventListener(MouseEvent.ROLL_OUT,outPerunahiiri);
+						this.removeEventListener(MouseEvent.ROLL_OVER,overPerunahiiri);
+						this.removeEventListener(MouseEvent.MOUSE_MOVE,movePerunahiiri);
+						
+				}		//																										punajuurihiiri
+			}
+				public function outPunajuurihiiri(event:MouseEvent):void
+				{
+					if(stage.contains(punajuurihiiri)){
+						stage.removeChild(punajuurihiiri);
+						Mouse.show();
+					}
+				}
+				public function overPunajuurihiiri(event:MouseEvent):void
+				{
+					
+					punajuurihiiri.x=stage.mouseX;
+					punajuurihiiri.y=stage.mouseY;
+					stage.addChild(punajuurihiiri);
+					Mouse.hide();
+					
+				}
+				public function movePunajuurihiiri(event:MouseEvent):void
+				{
+					if(!stage.contains(punajuurihiiri)){
+						stage.addChild(punajuurihiiri);
+						Mouse.hide();
+						punajuurihiiri.mouseEnabled = false;
+						punajuurihiiri.mouseChildren = false;
+					}
+					
+					punajuurihiiri.x=stage.mouseX;
+					punajuurihiiri.y=stage.mouseY;
+					event.updateAfterEvent();
+				}
+				public function removePunajuurihiiri(event:MouseEvent):void
+				{
+					if(stage.contains(punajuurihiiri)){
+						stage.removeChild(punajuurihiiri);
+						Mouse.show();
+						this.removeEventListener(MouseEvent.ROLL_OUT,outPunajuurihiiri);
+						this.removeEventListener(MouseEvent.ROLL_OVER,overPunajuurihiiri);
+						this.removeEventListener(MouseEvent.MOUSE_MOVE,movePunajuurihiiri);
+						
+				}		//																									salaattihiiri
+			}
+				public function outSalaattihiiri(event:MouseEvent):void
+				{
+					if(stage.contains(salaattihiiri)){
+						stage.removeChild(salaattihiiri);
+						Mouse.show();
+					}
+				}
+				public function overSalaattihiiri(event:MouseEvent):void
+				{
+					
+					salaattihiiri.x=stage.mouseX;
+					salaattihiiri.y=stage.mouseY;
+					stage.addChild(salaattihiiri);
+					Mouse.hide();
+					
+				}
+				public function moveSalaattihiiri(event:MouseEvent):void
+				{
+					if(!stage.contains(salaattihiiri)){
+						stage.addChild(salaattihiiri);
+						Mouse.hide();
+						salaattihiiri.mouseEnabled = false;
+						salaattihiiri.mouseChildren = false;
+					}
+					
+					salaattihiiri.x=stage.mouseX;
+					salaattihiiri.y=stage.mouseY;
+					event.updateAfterEvent();
+				}
+				public function removeSalaattihiiri(event:MouseEvent):void
+				{
+					if(stage.contains(salaattihiiri)){
+						stage.removeChild(salaattihiiri);
+						Mouse.show();
+						this.removeEventListener(MouseEvent.ROLL_OUT,outSalaattihiiri);
+						this.removeEventListener(MouseEvent.ROLL_OVER,overSalaattihiiri);
+						this.removeEventListener(MouseEvent.MOUSE_MOVE,moveSalaattihiiri);
+						
+				}	//																										sipulihiiri	
+			}
+				public function outSipulihiiri(event:MouseEvent):void
+				{
+					if(stage.contains(sipulihiiri)){
+						stage.removeChild(sipulihiiri);
+						Mouse.show();
+					}
+				}
+				public function overSipulihiiri(event:MouseEvent):void
+				{
+					
+					sipulihiiri.x=stage.mouseX;
+					sipulihiiri.y=stage.mouseY;
+					stage.addChild(sipulihiiri);
+					Mouse.hide();
+					
+				}
+				public function moveSipulihiiri(event:MouseEvent):void
+				{
+					if(!stage.contains(sipulihiiri)){
+						stage.addChild(sipulihiiri);
+						Mouse.hide();
+						sipulihiiri.mouseEnabled = false;
+						sipulihiiri.mouseChildren = false;
+					}
+					
+					sipulihiiri.x=stage.mouseX;
+					sipulihiiri.y=stage.mouseY;
+					event.updateAfterEvent();
+				}
+				public function removeSipulihiiri(event:MouseEvent):void
+				{
+					if(stage.contains(sipulihiiri)){
+						stage.removeChild(sipulihiiri);
+						Mouse.show();
+						this.removeEventListener(MouseEvent.ROLL_OUT,outSipulihiiri);
+						this.removeEventListener(MouseEvent.ROLL_OVER,overSipulihiiri);
+						this.removeEventListener(MouseEvent.MOUSE_MOVE,moveSipulihiiri);
+						
+				}		//																									tomaattihiiri
+			}
+				public function outTomaattihiiri(event:MouseEvent):void
+				{
+					if(stage.contains(tomaattihiiri)){
+						stage.removeChild(tomaattihiiri);
+						Mouse.show();
+					}
+				}
+				public function overTomaattihiiri(event:MouseEvent):void
+				{
+					
+					tomaattihiiri.x=stage.mouseX;
+					tomaattihiiri.y=stage.mouseY;
+					stage.addChild(tomaattihiiri);
+					Mouse.hide();
+					
+				}
+				public function moveTomaattihiiri(event:MouseEvent):void
+				{
+					if(!stage.contains(tomaattihiiri)){
+						stage.addChild(tomaattihiiri);
+						Mouse.hide();
+						tomaattihiiri.mouseEnabled = false;
+						tomaattihiiri.mouseChildren = false;
+					}
+					
+					tomaattihiiri.x=stage.mouseX;
+					tomaattihiiri.y=stage.mouseY;
+					event.updateAfterEvent();
+				}
+				public function removeTomaattihiiri(event:MouseEvent):void
+				{
+					if(stage.contains(tomaattihiiri)){
+						stage.removeChild(tomaattihiiri);
+						Mouse.show();
+						this.removeEventListener(MouseEvent.ROLL_OUT,outTomaattihiiri);
+						this.removeEventListener(MouseEvent.ROLL_OVER,overTomaattihiiri);
+						this.removeEventListener(MouseEvent.MOUSE_MOVE,moveTomaattihiiri);
 						
 				}		
 			}
