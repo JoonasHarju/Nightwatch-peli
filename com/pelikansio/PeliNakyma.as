@@ -20,6 +20,8 @@ package com.pelikansio
 		public var torinakyma:torinakyma1 = new torinakyma1();
 		public var kannu:kannu1 = new kannu1;
 		public var kuokka:kuokka1 = new kuokka1;
+		public var pelto:pelto1 = new pelto1;
+		public var valittupainike:String =""
 		
 		
 		public var lannoitehiiri:lannoitehiiri1 = new lannoitehiiri1
@@ -56,7 +58,9 @@ package com.pelikansio
 			
 			
 			
-			
+			stage.addChild(pelto);
+			pelto.x = 318;
+			pelto.y = 159;
 			
 			stage.addChild(kannu);
 			kannu.x = 600;
@@ -130,6 +134,18 @@ package com.pelikansio
 			this.addEventListener(MouseEvent.ROLL_OVER,overPorkkanahiiri);
 			this.addEventListener(MouseEvent.MOUSE_MOVE,movePorkkanahiiri);
 			this.addEventListener(MouseEvent.CLICK,removePorkkanahiiri);
+			valittuPainike("porkkana");
+		}
+		
+		private function valittuPainike(valinta:String):void
+		{
+			if(valittupainike!=valinta){
+				valittupainike=valinta
+				trace(valittupainike)
+			}else{
+				valittupainike=""
+				trace(valittupainike)
+			}
 		}
 		public function kannupainettu(event:MouseEvent)
 		{
@@ -137,6 +153,7 @@ package com.pelikansio
 			this.addEventListener(MouseEvent.ROLL_OVER,overKannuhiiri);
 			this.addEventListener(MouseEvent.MOUSE_MOVE,moveKannuhiiri);
 			this.addEventListener(MouseEvent.CLICK,removeKannuhiiri);
+			valittuPainike("kannu");
 		}
 		public function kukkakaalipainettu(event:MouseEvent)
 		{
@@ -144,6 +161,7 @@ package com.pelikansio
 			this.addEventListener(MouseEvent.ROLL_OVER,overKukkakaalihiiri);
 			this.addEventListener(MouseEvent.MOUSE_MOVE,moveKukkakaalihiiri);
 			this.addEventListener(MouseEvent.CLICK,removeKukkakaalihiiri);
+			valittuPainike("kukkakaali");
 		}
 		public function kuokkapainettu(event:MouseEvent)
 		{
@@ -151,6 +169,7 @@ package com.pelikansio
 			this.addEventListener(MouseEvent.ROLL_OVER,overKuokkahiiri);
 			this.addEventListener(MouseEvent.MOUSE_MOVE,moveKuokkahiiri);
 			this.addEventListener(MouseEvent.CLICK,removeKuokkahiiri);
+			valittuPainike("kuokka");
 		}
 		public function kurkkupainettu(event:MouseEvent)
 		{
@@ -158,6 +177,7 @@ package com.pelikansio
 			this.addEventListener(MouseEvent.ROLL_OVER,overKurkkuhiiri);
 			this.addEventListener(MouseEvent.MOUSE_MOVE,moveKurkkuhiiri);
 			this.addEventListener(MouseEvent.CLICK,removeKurkkuhiiri);
+			valittuPainike("kurkku");
 		}
 		public function lannoitepainettu(event:MouseEvent)
 		{
@@ -165,6 +185,7 @@ package com.pelikansio
 			this.addEventListener(MouseEvent.ROLL_OVER,overKursori);
 			this.addEventListener(MouseEvent.MOUSE_MOVE,moveKursori);
 			this.addEventListener(MouseEvent.CLICK,removeKursori);
+			valittuPainike("lannoite");
 		}
 		public function lanttupainettu(event:MouseEvent)
 		{
@@ -172,6 +193,7 @@ package com.pelikansio
 			this.addEventListener(MouseEvent.ROLL_OVER,overLanttuhiiri);
 			this.addEventListener(MouseEvent.MOUSE_MOVE,moveLanttuhiiri);
 			this.addEventListener(MouseEvent.CLICK,removeLanttuhiiri);
+			valittuPainike("lanttu");
 		}
 		public function perunapainettu(event:MouseEvent)
 		{
@@ -179,6 +201,7 @@ package com.pelikansio
 			this.addEventListener(MouseEvent.ROLL_OVER,overPerunahiiri);
 			this.addEventListener(MouseEvent.MOUSE_MOVE,movePerunahiiri);
 			this.addEventListener(MouseEvent.CLICK,removePerunahiiri);
+			valittuPainike("peruna");
 		}
 		public function punajuuripainettu(event:MouseEvent)
 		{
@@ -186,6 +209,7 @@ package com.pelikansio
 			this.addEventListener(MouseEvent.ROLL_OVER,overPunajuurihiiri);
 			this.addEventListener(MouseEvent.MOUSE_MOVE,movePunajuurihiiri);
 			this.addEventListener(MouseEvent.CLICK,removePunajuurihiiri);
+			valittuPainike("punajuuri");
 		}
 		public function salaattipainettu(event:MouseEvent)
 		{
@@ -193,6 +217,7 @@ package com.pelikansio
 			this.addEventListener(MouseEvent.ROLL_OVER,overSalaattihiiri);
 			this.addEventListener(MouseEvent.MOUSE_MOVE,moveSalaattihiiri);
 			this.addEventListener(MouseEvent.CLICK,removeSalaattihiiri);
+			valittuPainike("salaatti");
 		}
 		public function sipulipainettu(event:MouseEvent)
 		{
@@ -200,6 +225,7 @@ package com.pelikansio
 			this.addEventListener(MouseEvent.ROLL_OVER,overSipulihiiri);
 			this.addEventListener(MouseEvent.MOUSE_MOVE,moveSipulihiiri);
 			this.addEventListener(MouseEvent.CLICK,removeSipulihiiri);
+			valittuPainike("sipuli");
 		}	
 		public function tomaattipainettu(event:MouseEvent)
 		{
@@ -207,6 +233,7 @@ package com.pelikansio
 			this.addEventListener(MouseEvent.ROLL_OVER,overTomaattihiiri);
 			this.addEventListener(MouseEvent.MOUSE_MOVE,moveTomaattihiiri);
 			this.addEventListener(MouseEvent.CLICK,removeTomaattihiiri);
+			valittuPainike("tomaatti");
 		}
 
 		public function torinappipainettu(event:MouseEvent)
