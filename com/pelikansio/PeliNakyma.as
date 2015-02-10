@@ -10,6 +10,9 @@ package com.pelikansio
 	import flash.events.MouseEvent;
 	import flash.ui.Mouse;
 	import flash.ui.MouseCursor;
+	import flash.ui.MouseCursorData;
+	import flash.geom.Point;
+	import flash.display.BitmapData;
 	
 	
 	public class PeliNakyma extends MovieClip
@@ -38,6 +41,10 @@ package com.pelikansio
 		public var sipulihiiri:sipulihiiri1= new sipulihiiri1;
 		public var tomaattihiiri:tomaattihiiri1= new tomaattihiiri1;
 		
+		private var cursorBitmapData:BitmapData;
+		private var cursorData:MouseCursorData;
+		private var cursorVector:Vector.<BitmapData>;
+		
 		public function PeliNakyma(passedClass:Engine, stage:Stage)
 		{
 			trace("pelinäkymä");
@@ -55,8 +62,6 @@ package com.pelikansio
 			var sipuli:sipuli1 = new sipuli1;
 			var tomaatti:tomaatti1 = new tomaatti1;
 			var torinappi:torinappi1 = new torinappi1;
-			
-			
 			
 			stage.addChild(pelto);
 			pelto.x = 318;
@@ -127,6 +132,7 @@ package com.pelikansio
 			torinappi.y = 400;
 			torinappi.addEventListener(MouseEvent.CLICK, torinappipainettu)
 		}
+		
 		
 		public function porkkanapainettu(event:MouseEvent)
 		{
