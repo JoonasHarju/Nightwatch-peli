@@ -256,6 +256,7 @@ package com.pelikansio
 				stage.removeChild(porkkana)
 				stage.removeChild(kannu)
 				stage.removeChild(kuokka)
+				stage.removeChild(pelto)
 				
 				
 				
@@ -276,6 +277,10 @@ package com.pelikansio
 				stage.addChild(kannu);
 				kannu.x = 600;
 				kannu.y = 196;
+				
+				stage.addChild(pelto);
+				pelto.x = 318;
+				pelto.y = 159;
 			}
 
 		}
