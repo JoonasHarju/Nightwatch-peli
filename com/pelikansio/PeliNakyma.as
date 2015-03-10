@@ -11,7 +11,7 @@ package com.pelikansio
 	import flash.ui.Mouse;
 	import flash.ui.MouseCursor;
 	import flash.ui.MouseCursorData;
-	import flash.geom.Point;
+	import flash.geom.Point; 		
 	import flash.display.BitmapData;
 	
 	
@@ -23,7 +23,8 @@ package com.pelikansio
 		public var torinakyma:torinakyma1 = new torinakyma1();
 		public var kannu:kannu1 = new kannu1;
 		public var kuokka:kuokka1 = new kuokka1;
-		public var pelto:pelto1 = new pelto1;
+		public var _pelto1:pelto1 = new pelto1;
+		public var _pelto2:pelto2 = new pelto2;
 		public var valittupainike:String =""
 		
 		
@@ -63,9 +64,13 @@ package com.pelikansio
 			var tomaatti:tomaatti1 = new tomaatti1;
 			var torinappi:torinappi1 = new torinappi1;
 			
-			stage.addChild(pelto);
-			pelto.x = 318;
-			pelto.y = 159;
+			stage.addChild(_pelto1);
+			_pelto1.x = 318;
+			_pelto1.y = 159;
+			
+			stage.addChild(_pelto2);
+			_pelto2.x = 318;
+			_pelto2.y = 100;
 			
 			stage.addChild(kannu);
 			kannu.x = 600;
@@ -256,7 +261,7 @@ package com.pelikansio
 				stage.removeChild(porkkana)
 				stage.removeChild(kannu)
 				stage.removeChild(kuokka)
-				stage.removeChild(pelto)
+				stage.removeChild(_pelto1)
 				
 				
 				
@@ -278,9 +283,9 @@ package com.pelikansio
 				kannu.x = 600;
 				kannu.y = 196;
 				
-				stage.addChild(pelto);
-				pelto.x = 318;
-				pelto.y = 159;
+				stage.addChild(_pelto1);
+				_pelto1.x = 318;
+				_pelto1.y = 159;
 			}
 
 		}
